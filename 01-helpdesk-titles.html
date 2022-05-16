@@ -7,27 +7,31 @@
 
 <!-- Copy and paste the code below -->
 <script>
-  let h1Titles = document.querySelectorAll(`[data-type="#"]`)
-  let h2Titles = document.querySelectorAll(`[data-type="##"]`)
-  let h3Titles = document.querySelectorAll(`[data-type="###"]`)
-  let h4Titles = document.querySelectorAll(`[data-type="####"]`)
-  let h5Titles = document.querySelectorAll(`[data-type="#####"]`)
-  let h6Titles = document.querySelectorAll(`[data-type="######"]`)
-
-  let allTitles = [h1Titles, h2Titles, h3Titles, h4Titles, h5Titles, h6Titles];
-
-  for (subTitle of allTitles) {
-    for (title of subTitle) {
-      titleArray = title.innerHTML.split(" ");
-      let updateArray = [];
-
-      titleArray.forEach(element => {
-        if (element.length > 0){
-          updateArray.push(element.split('')[0].toUpperCase() + element.slice(1))
-        }
-      });
-
-      title.innerHTML = updateArray.join(" ")
+  document.addEventListener("DOMContentLoaded", () => {    
+    let h1Titles = document.querySelectorAll(`[data-type="#"]`)
+    let h2Titles = document.querySelectorAll(`[data-type="##"]`)
+    let h3Titles = document.querySelectorAll(`[data-type="###"]`)
+    let h4Titles = document.querySelectorAll(`[data-type="####"]`)
+    let h5Titles = document.querySelectorAll(`[data-type="#####"]`)
+    let h6Titles = document.querySelectorAll(`[data-type="######"]`)
+    let h1ArticleTitle = document.querySelectorAll(`h1`)
+    
+    
+    let allTitles = [h1ArticleTitle, h1Titles, h2Titles, h3Titles, h4Titles, h5Titles, h6Titles];
+  
+    for (subTitle of allTitles) {
+      for (title of subTitle) {
+        titleArray = title.innerHTML.split(" ");
+        let updateArray = [];
+  
+        titleArray.forEach(element => {
+          if (element.length > 0){
+            updateArray.push(element.split('')[0].toUpperCase() + element.slice(1))
+          }
+        });
+  
+        title.innerHTML = updateArray.join(" ")
+      }
     }
-  }
+  })
 </script>
